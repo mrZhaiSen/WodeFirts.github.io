@@ -1767,7 +1767,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f23eff;
+  background: #fff038;
 }
 .feed-link,
 .chat {
@@ -2958,6 +2958,13 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+.main-inner {
+  background: #fff;
+  opacity: 0.8;
+}
+.header-inner {
+  opacity: 0.8;
 }
 .post {
   margin-top: 5px;
