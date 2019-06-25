@@ -403,7 +403,7 @@
                 
               
 
-              <time title="创建时间：2019-06-25 22:32:02 / 修改时间：22:41:56" itemprop="dateCreated datePublished" datetime="2019-06-25T22:32:02+08:00">2019-06-25</time>
+              <time title="创建时间：2019-06-25 22:32:02 / 修改时间：22:59:16" itemprop="dateCreated datePublished" datetime="2019-06-25T22:32:02+08:00">2019-06-25</time>
             
 
             
@@ -462,7 +462,7 @@
       
         
           
-            <h1 id="计算机操作系统复习"><a href="#计算机操作系统复习" class="headerlink" title="计算机操作系统复习"></a>计算机操作系统复习</h1><p>1 进程同步问题  P60  哲学家进餐  或者  生产者消费者问题</p>
+            <h1 id="计算机操作系统复习"><a href="#计算机操作系统复习" class="headerlink" title="计算机操作系统复习"></a>计算机操作系统复习</h1><p>1 进程同步问题  P60  哲学家进餐  或者  生产者消费者问题（见末尾）</p>
 <p>2算法  P89</p>
 <p>先来先服务</p>
 <p>作业     提交时间    运行时间  开始时间  结束时间  周转时间     带权周转时间</p>
@@ -482,6 +482,86 @@
 <p>先进先出FIFO算法</p>
 <p>驻留最久的页面最先被淘汰</p>
 <p>最久未使用LRU算法</p>
+<p>利用记录型信号量解决生产者-消费者问题</p>
+<p>int in=0,out=0;</p>
+<p>item buffer[n];</p>
+<p>semaphore mutex=1,empty=n,full=0;</p>
+<p>void producer(){</p>
+<p>​    do{</p>
+<p>​        producer an item nextp;</p>
+<p>​        ….</p>
+<p>​        wait(empty);</p>
+<p>​        wait(mutex);</p>
+<p>​        buffer[in]=nextp;</p>
+<p>​        in=(in+1)%n;</p>
+<p>​        signal(mutex);</p>
+<p>​        signal(full);</p>
+<p>​    }while(TRUE);</p>
+<p>}</p>
+<p>void consumer(){</p>
+<p>​    do{</p>
+<p>​        wait(full);</p>
+<p>​        wait(mutex);</p>
+<p>​        nextc=buffer[out];</p>
+<p>​        out=(out+1)%n;</p>
+<p>​        signal(mutex);</p>
+<p>​        signal(empty);</p>
+<p>​        consumer the item in nextc;</p>
+<p>​        …    </p>
+<p>​    }while(TRUE);</p>
+<p>}</p>
+<p>void main(){</p>
+<p>​    cobdgin</p>
+<p>​        producer();</p>
+<p>​        consumer();</p>
+<p>​    coend</p>
+<p>用AND信号量解决生产者-消费者问题</p>
+<p>int in=0,out=0;</p>
+<p>item buffer[n];</p>
+<p>semaphore mutex=1,empty=n,full=0;</p>
+<p>void producer(){</p>
+<p>​    do{</p>
+<p>​        producer an item nextp;</p>
+<p>​        …</p>
+<p>​        Swait(empty,mutex);</p>
+<p>​        buffer[in]=nextp;</p>
+<p>​        in=(in+1)%n;</p>
+<p>​        Ssignal(mutex,full); </p>
+<p>​    }while(TRUE);</p>
+<p>} </p>
+<p>void consumer(){</p>
+<p>​    do{</p>
+<p>​        Swait(full,mutex);</p>
+<p>​        nextc=buffer[out];</p>
+<p>​        out=(out+1)%n;</p>
+<p>​        Ssignal(mutex,empty);</p>
+<p>​        consumer the item in nextc;</p>
+<p>​        …</p>
+<p>​    }while(TRUE)</p>
+<p>}</p>
+<p>）利用管程解决生产者-消费者问题</p>
+<p>void producer(){</p>
+<p>​    item x;</p>
+<p>​    while(TRUE){</p>
+<p>​        …</p>
+<p>​        produce an item in nextp;</p>
+<p>​        PC.put(x);</p>
+<p>​    }</p>
+<p>}</p>
+<p>void consumer(){</p>
+<p>​    item x;</p>
+<p>​    while(TRUE){</p>
+<p>​        PC.get(x);</p>
+<p>​        consume the item in nextc;</p>
+<p>​        …</p>
+<p>​    }</p>
+<p>}</p>
+<p>void main(){</p>
+<p>​    cobegin</p>
+<p>​    producer();</p>
+<p>​    consumer();</p>
+<p>​    coend</p>
+<p>}</p>
 
           
         
