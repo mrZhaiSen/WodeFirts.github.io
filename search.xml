@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2FWodeFirts.github.io%2F2019%2F09%2F17%2Ftest%2F</url>
+    <content type="text"><![CDATA[添加一个图片this is a photo：]]></content>
+      <categories>
+        <category>实验</category>
+      </categories>
+      <tags>
+        <tag>实验</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[计算机操作系统复习]]></title>
     <url>%2FWodeFirts.github.io%2F2019%2F06%2F25%2F%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%A4%8D%E4%B9%A0%2F</url>
     <content type="text"><![CDATA[计算机操作系统复习1 进程同步问题 P60 哲学家进餐 或者 生产者消费者问题（见末尾） 2算法 P89 先来先服务 作业 提交时间 运行时间 开始时间 结束时间 周转时间 带权周转时间 1 8.0 1.0 8.0 8+1 8+1-1 运行时间/周转时间 短时间优先（运行时间 越短越优先） 高响应优先（等待时间（开始时间-提交时间）+执行时间）/执行时间 银行家算法 MAX 需要多少 All 系统分给他多少 need 还需要多少 ava 系统还剩下多少 P113 3 逻辑地址 页号 = （有效逻辑地址/每页的字节）商为块号 商*每页的字节 + 余数 地址 3 LRU和FIFO页面置换算法 最佳置换算法 被淘汰的页面时未来最长时间内不再被访问的页面 先进先出FIFO算法 驻留最久的页面最先被淘汰 最久未使用LRU算法 利用记录型信号量解决生产者-消费者问题 int in=0,out=0; item buffer[n]; semaphore mutex=1,empty=n,full=0; void producer(){ ​ do{ ​ producer an item nextp; ​ …. ​ wait(empty); ​ wait(mutex); ​ buffer[in]=nextp; ​ in=(in+1)%n; ​ signal(mutex); ​ signal(full); ​ }while(TRUE); } void consumer(){ ​ do{ ​ wait(full); ​ wait(mutex); ​ nextc=buffer[out]; ​ out=(out+1)%n; ​ signal(mutex); ​ signal(empty); ​ consumer the item in nextc; ​ … ​ }while(TRUE); } void main(){ ​ cobdgin ​ producer(); ​ consumer(); ​ coend 用AND信号量解决生产者-消费者问题 int in=0,out=0; item buffer[n]; semaphore mutex=1,empty=n,full=0; void producer(){ ​ do{ ​ producer an item nextp; ​ … ​ Swait(empty,mutex); ​ buffer[in]=nextp; ​ in=(in+1)%n; ​ Ssignal(mutex,full); ​ }while(TRUE); } void consumer(){ ​ do{ ​ Swait(full,mutex); ​ nextc=buffer[out]; ​ out=(out+1)%n; ​ Ssignal(mutex,empty); ​ consumer the item in nextc; ​ … ​ }while(TRUE) } ）利用管程解决生产者-消费者问题 void producer(){ ​ item x; ​ while(TRUE){ ​ … ​ produce an item in nextp; ​ PC.put(x); ​ } } void consumer(){ ​ item x; ​ while(TRUE){ ​ PC.get(x); ​ consume the item in nextc; ​ … ​ } } void main(){ ​ cobegin ​ producer(); ​ consumer(); ​ coend }]]></content>
